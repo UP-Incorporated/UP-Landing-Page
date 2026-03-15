@@ -11,9 +11,7 @@ export class RefreshButton extends Component {
         return (
             <Tooltip title="Refresh the page">
                 <IconButton onClick={this.refreshPage}>
-                    <RefreshIcon>
-
-                    </RefreshIcon>
+                    <RefreshIcon />
                 </IconButton>
             </Tooltip>
         )
