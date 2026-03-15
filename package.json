@@ -16,6 +16,7 @@
     "@fontsource-variable/material-symbols-rounded": "^5.2.38",
     "@fontsource-variable/material-symbols-sharp": "^5.2.38",
     "@fontsource/open-sans": "^5.2.7",
+    "@mui/icons-material": "^7.3.9",
     "@mui/material": "^7.3.9",
     "react": "^19.2.4",
     "react-dom": "^19.2.4"
