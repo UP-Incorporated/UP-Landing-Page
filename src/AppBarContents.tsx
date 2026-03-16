@@ -41,9 +41,12 @@ export class AppBarContents extends Component<object, State> {
                 </div>
 
                 {/* Center Section: Branding */}
-                <h1 className="text-2xl font-bold text-white text-center select-none">
-                    UP Inc.
-                </h1>
+                <div className="flex flex-col flex-1">
+                    <h1 className="text-2xl font-bold text-white text-center select-none">
+                        UP Inc.
+                    </h1>
+                    <h2 className="text-1xl text-white text-center select-none">Where Dreams come true</h2>
+                </div>
 
                 {/* Right Section: Actions */}
                 <div className="flex-none">
