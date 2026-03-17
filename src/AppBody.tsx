@@ -1,7 +1,9 @@
 import {Component} from "react";
 import {CopyableText} from "./CopyableText.tsx";
 
-export class AppBody extends Component {
+export interface AppBodyProps {}
+
+export class AppBody extends Component<AppBodyProps, {}> {
     render() {
         return (
             <>
@@ -17,9 +19,9 @@ export class AppBody extends Component {
                     <h3 className="text-4xl font-bold text-white mb-8">
                         Contact us using Email!
                     </h3>
-                    <h5 className="text-2xl font-bold text-white">
+                    <h4 className="text-2xl font-bold text-white">
                         At
-                    </h5>
+                    </h4>
                     <CopyableText title="up-coding@proton.me" className="text-3xl text-white"/>
                 </div>
             </>

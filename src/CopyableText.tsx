@@ -11,11 +11,20 @@ export interface State {
 }
 
 export class CopyableText extends Component<Props, State> {
+    private tooltipTimerId: any = null;
+
     constructor(props: Props) {
         super(props);
         this.state = {
             tooltip: "Click to copy!",
         };
+    }
+
+    componentWillUnmount() {
+        if (this.tooltipTimerId) {
+            clearTimeout(this.tooltipTimerId);
+            this.tooltipTimerId = null;
+        }
     }
 
     // ✅ Arrow function, correct syntax
@@ -24,13 +33,21 @@ export class CopyableText extends Component<Props, State> {
             await navigator.clipboard.writeText(this.props.title);
             this.setState({ tooltip: "Copied! ✓" });
 
-            setTimeout(() => {
+            if (this.tooltipTimerId) {
+                clearTimeout(this.tooltipTimerId);
+            }
+            this.tooltipTimerId = setTimeout(() => {
                 this.setState({ tooltip: "Click to copy!" });
+                this.tooltipTimerId = null;
             }, 500);
         } catch {
             this.setState({ tooltip: "Failed to copy" });
-            setTimeout(() => {
+            if (this.tooltipTimerId) {
+                clearTimeout(this.tooltipTimerId);
+            }
+            this.tooltipTimerId = setTimeout(() => {
                 this.setState({ tooltip: "Click to copy!" });
+                this.tooltipTimerId = null;
             }, 500);
         }
     };
