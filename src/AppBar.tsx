@@ -11,6 +11,6 @@ export class AppBar extends Component<AppBarProps> {
                     {this.props.children}
                 </header>
             </>
-        )
+        );
     }
 }

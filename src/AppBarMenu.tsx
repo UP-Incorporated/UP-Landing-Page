@@ -35,6 +35,7 @@ export class AppBarMenu extends Component<object, State> {
                         aria-controls={open ? this.menuId : undefined}
                         aria-haspopup="true"
                         aria-expanded={open ? "true" : undefined}
+                        aria-label="Open menu"
                     >
                         <MenuIcon />
                     </IconButton>
