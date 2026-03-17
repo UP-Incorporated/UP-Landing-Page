@@ -1,4 +1,4 @@
-import { Component, KeyboardEvent } from "react";
+import { Component, type KeyboardEvent } from "react";
 import Tooltip from "@mui/material/Tooltip";
 
 export interface Props {
