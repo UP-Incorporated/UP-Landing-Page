@@ -1,12 +1,12 @@
 import {Component} from "react";
 import {CopyableText} from "./CopyableText.tsx";
 
-export class AppBody extends Component<object, object> {
+export class AppBody extends Component {
     render() {
         return (
             <>
                 {/* Vertical Layering for Website */}
-                <div className="flex flex-col items-center justify-between w-full h-16 px-4 select-none">
+                <div className="flex flex-col items-center justify-between w-full px-4 select-none">
                     <h1 className="text-6xl font-bold text-white">
                         Welcome to UP!
                     </h1>

@@ -1,4 +1,4 @@
-import { Component } from "react";
+import { Component, KeyboardEvent } from "react";
 import Tooltip from "@mui/material/Tooltip";
 
 export interface Props {
@@ -29,15 +29,33 @@ export class CopyableText extends Component<Props, State> {
             }, 500);
         } catch {
             this.setState({ tooltip: "Failed to copy" });
+            setTimeout(() => {
+                this.setState({ tooltip: "Click to copy!" });
+            }, 500);
+        }
+    };
+
+    handleKeyDown = (event: KeyboardEvent) => {
+        if (event.key === "Enter" || event.key === " ") {
+            if (event.key === " ") {
+                event.preventDefault();
+            }
+            this.copyText();
         }
     };
 
     render() {
-        const css = "hover:text-orange-500 transition-colors duration-200 " + (this.props.className ?? "");
+        const css = "hover:text-orange-500 transition-colors duration-200 cursor-pointer " + (this.props.className ?? "");
 
         return (
             <Tooltip title={this.state.tooltip} arrow>
-        <span className={css} onClick={this.copyText}>
+        <span
+            className={css}
+            onClick={this.copyText}
+            onKeyDown={this.handleKeyDown}
+            tabIndex={0}
+            role="button"
+        >
           {this.props.title}
         </span>
             </Tooltip>
