@@ -1,18 +1,14 @@
 import React, {Component} from "react";
-import {Menu} from "@mui/material";
-import MenuItem from "@mui/material/MenuItem";
-import IconButton from "@mui/material/IconButton";
+import {Menu, MenuItem, IconButton, ListItemIcon, ListItemText} from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu"
 import HomeIcon from "@mui/icons-material/Home"
-import {ListItemIcon} from "@mui/material";
-import ListItemText from "@mui/material/ListItemText";
 
 interface State {
     anchorEl: HTMLElement | null;
 }
 
 
-export class AppBarMenu extends Component {
+export class AppBarMenu extends Component<object, State> {
     state: State = {
         anchorEl: null,
     };
