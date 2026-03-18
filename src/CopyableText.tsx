@@ -11,7 +11,7 @@ export interface State {
 }
 
 export class CopyableText extends Component<Props, State> {
-    private tooltipTimerId: any = null;
+    private tooltipTimerId: ReturnType<typeof setTimeout> | null = null;
 
     constructor(props: Props) {
         super(props);
@@ -21,7 +21,7 @@ export class CopyableText extends Component<Props, State> {
     }
 
     componentWillUnmount() {
-        if (this.tooltipTimerId) {
+        if (this.tooltipTimerId !== null) {
             clearTimeout(this.tooltipTimerId);
             this.tooltipTimerId = null;
         }
@@ -33,7 +33,7 @@ export class CopyableText extends Component<Props, State> {
             await navigator.clipboard.writeText(this.props.title);
             this.setState({ tooltip: "Copied! ✓" });
 
-            if (this.tooltipTimerId) {
+            if (this.tooltipTimerId !== null) {
                 clearTimeout(this.tooltipTimerId);
             }
             this.tooltipTimerId = setTimeout(() => {
@@ -42,7 +42,7 @@ export class CopyableText extends Component<Props, State> {
             }, 500);
         } catch {
             this.setState({ tooltip: "Failed to copy" });
-            if (this.tooltipTimerId) {
+            if (this.tooltipTimerId !== null) {
                 clearTimeout(this.tooltipTimerId);
             }
             this.tooltipTimerId = setTimeout(() => {

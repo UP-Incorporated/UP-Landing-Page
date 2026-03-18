@@ -1,7 +1,9 @@
-import {Component} from "react";
+import {Component, type ReactNode} from "react";
 import {CopyableText} from "./CopyableText.tsx";
 
-export interface AppBodyProps {}
+export interface AppBodyProps {
+    children?: ReactNode;
+}
 
 export class AppBody extends Component<AppBodyProps, {}> {
     render() {
@@ -23,6 +25,7 @@ export class AppBody extends Component<AppBodyProps, {}> {
                         At
                     </h4>
                     <CopyableText title="up-coding@proton.me" className="text-3xl text-white"/>
+                    {this.props.children}
                 </div>
             </>
         );
